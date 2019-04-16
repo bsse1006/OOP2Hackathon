@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="package1.adminController">
+   <children>
+      <TextField fx:id="txtName" layoutX="176.0" layoutY="73.0" promptText="Name" />
+      <TextField fx:id="txtRoll" layoutX="176.0" layoutY="117.0" promptText="Roll" />
+      <TextField fx:id="txtMName" layoutX="176.0" layoutY="162.0" promptText="Mother's name" />
+      <TextField fx:id="txtFName" layoutX="175.0" layoutY="208.0" promptText="Father's name" />
+      <Button layoutX="209.0" layoutY="407.0" mnemonicParsing="false" onAction="#createEntry" text="Create Entry" />
+      <TextField fx:id="txtAccNum" layoutX="176.0" layoutY="250.0" promptText="Account number" />
+      <PasswordField fx:id="txtAccPass" layoutX="176.0" layoutY="288.0" promptText="Account password" />
+      <Label fx:id="txtStatus" layoutX="208.0" layoutY="452.0" prefHeight="17.0" prefWidth="84.0" />
+      <TextField fx:id="txtUsername" layoutX="175.0" layoutY="330.0" promptText="Username" />
+      <TextField fx:id="txtPassword" layoutX="175.0" layoutY="366.0" promptText="Password" />
+   </children>
+</AnchorPane>

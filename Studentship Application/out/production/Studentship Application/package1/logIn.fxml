@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="package1.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane fx:id="rootPane" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <Button layoutX="203.0" layoutY="341.0" mnemonicParsing="false" onAction="#logIn" prefHeight="37.0" prefWidth="119.0" text="Log In" />
+            <TextField fx:id="txtUsername" layoutX="189.0" layoutY="178.0" promptText="User Name" />
+            <PasswordField fx:id="txtPassword" layoutX="189.0" layoutY="227.0" promptText="Password" />
+            <CheckBox fx:id="checkStu" layoutX="226.0" layoutY="272.0" mnemonicParsing="false" text="Student" />
+            <CheckBox fx:id="checkAd" layoutX="226.0" layoutY="304.0" mnemonicParsing="false" text="Admin" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
