@@ -105,7 +105,10 @@ public class Operator {
                     System.out.println(s);
                 }
                 else if(choice==3)
+                {
                     break;
+                }
+
             }
 
 

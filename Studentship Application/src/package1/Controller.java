@@ -46,29 +46,33 @@ public class Controller
 
         students = file.readFromFile();
 
-        for(Student s: students)
+        if(txtUsername.getText().equals("admin")&&txtPassword.getText().equals("1234567")
+                &&!checkStu.isSelected()&&checkAd.isSelected())
         {
-            System.out.println(s.getUsername() + "\n" + s.getPassword() + "\n" + txtUsername + "\n" + txtPassword);
-            if(s.getUsername().equals(txtUsername.getText())&&s.getPassword().equals(txtPassword.getText())
-            &&checkStu.isSelected()&&!checkAd.isSelected()&&!s.isAdmin())
+            Parent root = FXMLLoader.load(getClass().getResource("adminAfterLogIn.fxml"));
+            Scene scene = new Scene (root);
+            Stage window = (Stage) rootPane.getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        }
+        else
+        {
+            for(Student s: students)
             {
-                System.out.println("wth");
-                Parent root = FXMLLoader.load(getClass().getResource("afterLogIn.fxml"));
-                Scene scene = new Scene (root);
-                Stage window = (Stage) rootPane.getScene().getWindow();
-                window.setScene(scene);
-                window.show();
-            }
-            else if(txtUsername.getText().equals("admin")&&txtPassword.getText().equals("1234567")
-                    &&!checkStu.isSelected()&&checkAd.isSelected())
-            {
-                Parent root = FXMLLoader.load(getClass().getResource("adminAfterLogIn.fxml"));
-                Scene scene = new Scene (root);
-                Stage window = (Stage) rootPane.getScene().getWindow();
-                window.setScene(scene);
-                window.show();
+                if(s.getUsername().equals(txtUsername.getText())&&s.getPassword().equals(txtPassword.getText())
+                        &&checkStu.isSelected()&&!checkAd.isSelected()&&!s.isAdmin())
+                {
+                    Parent root = FXMLLoader.load(getClass().getResource("afterLogIn.fxml"));
+                    Scene scene = new Scene (root);
+                    Stage window = (Stage) rootPane.getScene().getWindow();
+                    window.setScene(scene);
+                    window.show();
+                }
+
             }
         }
+
+
 
 
 

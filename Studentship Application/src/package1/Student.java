@@ -11,7 +11,6 @@ public class Student implements Serializable {
     private String roll;
     private String username;
     private String password;
-    //private BankAccount acc;
     private boolean isAdmin;
 
     public Student ()

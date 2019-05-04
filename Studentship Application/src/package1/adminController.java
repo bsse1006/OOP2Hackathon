@@ -2,6 +2,7 @@ package package1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,14 +20,9 @@ public class adminController {
 
     @FXML private TextField txtFName;
 
-    @FXML private TextField txtAccNum;
-
-    @FXML private PasswordField txtAccPass;
-
     @FXML private Label txtStatus;
 
-    @FXML
-    private TextField txtMName;
+    @FXML private TextField txtMName;
 
     @FXML private AnchorPane rootPane;
 
@@ -50,5 +46,6 @@ public class adminController {
 
         file.writeToFile(students);
 
+        txtStatus.setText("Account created!\n");
     }
 }

@@ -12,9 +12,9 @@
       <TextField fx:id="txtRoll" layoutX="176.0" layoutY="125.0" promptText="Roll" />
       <TextField fx:id="txtMName" layoutX="176.0" layoutY="173.0" promptText="Mother's name" />
       <TextField fx:id="txtFName" layoutX="176.0" layoutY="230.0" promptText="Father's name" />
-      <Button layoutX="191.0" layoutY="407.0" mnemonicParsing="false" onAction="#submitApplication" text="Submit Application" />
+      <Button layoutX="191.0" layoutY="407.0" mnemonicParsing="false" onAction="#submitApplication" text="Submit Application" textAlignment="CENTER" />
       <TextField fx:id="txtAccNum" layoutX="176.0" layoutY="282.0" promptText="Account number" />
       <PasswordField fx:id="txtAccPass" layoutX="175.0" layoutY="338.0" promptText="Account password" />
-      <Label fx:id="status" layoutX="208.0" layoutY="452.0" prefHeight="17.0" prefWidth="84.0" />
+      <Label fx:id="txtStatus" layoutX="187.0" layoutY="442.0" prefHeight="25.0" prefWidth="124.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

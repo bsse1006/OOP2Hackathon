@@ -16,7 +16,7 @@ public class Operator implements Serializable
 	ObjectOutputStream ob = null;
 	ObjectInputStream ib = null;
 
-	ArrayList <Account> accounts = new ArrayList <Account> ();
+	private ArrayList <Account> accounts = new ArrayList <Account> ();
 	
 	private static final long serialVersionUID = -1025998266932287368L;
 
@@ -164,14 +164,11 @@ public class Operator implements Serializable
 
 	}
 
-	public boolean isValid (String accNum, String accPass)
+	public boolean isValid (String accNum, String accPass, Account a)
 	{
-		for(Account a: accounts)
+		if(a.getAccNum().equals(accNum)&&a.getAccPassword().equals(accPass))
 		{
-			if(a.getAccNum().equals(accNum)&&a.getAccPassword().equals(accPass))
-			{
-				return true;
-			}
+			return true;
 		}
 
 		return false;
@@ -183,6 +180,7 @@ public class Operator implements Serializable
 
 		TestFile f;
 		f = new TestFile();
+		accounts = f.readFromFile();
 
 		while(true)
 		{
@@ -240,7 +238,6 @@ public class Operator implements Serializable
 					else if (choice == 1) createAccount();
 					else if (choice == 2) beforeLogIn();
 
-					//System.out.println();
 				}
 
 				try {
@@ -271,11 +268,13 @@ public class Operator implements Serializable
 				ib = new ObjectInputStream(client.getInputStream());
 				String s1 = (String) ib.readObject();
 
+				int mark = 0;
 
 				for(Account a: accounts)
 				{
-					if(isValid(s,s1))
+					if(isValid(s,s1,a))
 					{
+						mark = 1;
 						if(a.getBalance()>=100.0)
 						{
 							a.setBalance(a.getBalance()-100.0);
@@ -284,16 +283,26 @@ public class Operator implements Serializable
 							ob.writeObject(status);
 							ob.flush();
 						}
-					}
-					else
-					{
-						int status = 0;
-						ob = new ObjectOutputStream(client.getOutputStream());
-						ob.writeObject(status);
-						ob.flush();
+						else
+						{
+							int status = 0;
+							ob = new ObjectOutputStream(client.getOutputStream());
+							ob.writeObject(status);
+							ob.flush();
+						}
+						break;
 					}
 				}
+
+				if(mark==0)
+				{
+					int status = 0;
+					ob = new ObjectOutputStream(client.getOutputStream());
+					ob.writeObject(status);
+					ob.flush();
+				}
 			}
+			f.writeToFile(accounts);
 		}
 
 	}
